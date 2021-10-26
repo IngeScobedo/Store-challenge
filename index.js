@@ -3,7 +3,9 @@ let carousel = getEl(".carousel__list");
 let menuIcon = getEl("#menu-icon-image");
 let close = getEl("#close-icon");
 let menu = getEl(".menu-wrapper");
-let links = document.querySelectorAll('a');
+let links = document.querySelectorAll("a");
+let cartIcon = getEl("#cart-icon");
+let cartMenu = getEl(".cart__menu-wrapper");
 console.log(links);
 
 window.addEventListener("load", function () {
@@ -18,15 +20,12 @@ window.addEventListener("load", function () {
   });
 });
 
-menuIcon.addEventListener("click", () => {
-    menu.classList.toggle('menu-active');
-});
-close.addEventListener("click", () => {
-    menu.classList.toggle('menu-active');
-});
+menuIcon.addEventListener("click", () => menu.classList.toggle("menu-active"));
+close.addEventListener("click", () => menu.classList.toggle("menu-active"));
 
-links.forEach( e =>{
-    e.addEventListener("click", () => {
-        menu.classList.remove('menu-active');
-    });
-})
+links.forEach((e) =>
+  e.addEventListener("click", () => menu.classList.remove("menu-active"))
+);
+cartIcon.addEventListener("click", () =>
+  cartMenu.classList.toggle("cart__menu-active")
+);
